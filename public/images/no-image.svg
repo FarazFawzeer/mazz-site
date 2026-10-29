@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 132" fill="none">
+  <g stroke="#a3a9b3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M118 14H70a12 12 0 0 0-12 12v40a12 12 0 0 0 12 12h3"/>
+    <path d="M93 78h47a12 12 0 0 0 12-12V26a12 12 0 0 0-4-9"/>
+    <path d="M60 64l17-17 7 7"/>
+    <path d="M100 52l9-9 22 22"/>
+    <circle cx="131" cy="32" r="7"/>
+    <path d="M66 90 142 8"/>
+  </g>
+  <text x="100" y="122" text-anchor="middle" fill="#a3a9b3" font-family="Nunito, 'Segoe UI', Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="3.5">NO IMAGE</text>
+</svg>
