@@ -20,6 +20,13 @@ Public showcase site for Mazz Laptop Hub (`mazzlaptop.lk`). The admin system is 
 - MariaDB needs `DB_COLLATION=utf8mb4_unicode_ci`.
 - `.claude/launch.json`: `mazz-site` (port 8010) and `admin-media` (port 8011, serves the admin's public folder for photos).
 
+## Live (Hostinger)
+- Goes on the main domain website `mazzlaptop.lk` (the admin is `admin.mazzlaptop.lk`). Same database as the admin, read-only.
+- Layout: `public_html/` holds the contents of `public/` plus `deploy/public_html/index.php` (requires `mazz-site/...`, calls `usePublicPath(__DIR__)`) and `deploy/public_html/.htaccess` (https + no-www redirect, blocks `/mazz-site`). The project is in `public_html/mazz-site` with `deploy/project.htaccess` as its `.htaccess` (`Require all denied`).
+- `deploy/build-package.ps1` builds `dist/mazz-site.zip` (no-dev vendor, empty storage/bootstrap cache, production `.env` with a fresh APP_KEY and empty DB fields) and `dist/public_html.zip`. `dist/` is git-ignored. Step-by-step guide for Faraz: `deploy/README.md`.
+- Live `.env`: `APP_DEBUG=false`, `SESSION_DRIVER=file`, `CACHE_STORE=file` (never database: the site must not write to the admin DB), `MAZZ_MEDIA_URL=https://admin.mazzlaptop.lk`, DB values copied from the admin's live `.env`.
+- Branded error pages: `errors/404` (uses the layout), `errors/500` and `503` (standalone, no DB).
+
 ## Design
 - **White body framed by dark sections** (Faraz, 2026-10-27): the hero, the coffee "Chat or visit" band and the footer are dark; everything else is white. Earlier: full light, full dark, Astral Luxe scroll, serif fonts, bento and WoodMart styles were tried. Goal: friendly, clean, easy for everyone; colour grading matters.
 - `public/css/site.css` has **one token set**: light tokens on `:root`, and dark tokens redefined on `.hero, .band, .site-footer, .buildbar` and on the home header while it floats over the hero. Components use tokens only (`--text`, `--surface`, `--primary`/`--on-primary`, `--price`...), so they work on both. Don't hard-code light/dark colours in components.

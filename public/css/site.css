@@ -1182,3 +1182,7 @@ body:not(.nav-open) .site-header.is-scrolled { box-shadow: 0 12px 30px -20px rgb
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* Error pages */
+.error-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.error-actions .act { padding: 0 22px; }
